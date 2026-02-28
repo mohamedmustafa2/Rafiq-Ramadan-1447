@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>رفيق رمضان</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+    --bg-primary: #050b14;
+    --bg-secondary: #0f172a;
+    --bg-card: rgba(30, 41, 59, 0.7);
+    --bg-glass: rgba(15, 23, 42, 0.6);
+    --accent-gold: #fbbf24;
+    --accent-gold-dim: #b45309;
+    --accent-emerald: #10b981;
+    --accent-royal: #6366f1;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --border-light: rgba(255, 255, 255, 0.1);
+    --border-gold: rgba(251, 191, 36, 0.3);
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-xl: 30px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+body { 
+    font-family: 'Tajawal', sans-serif; 
+    background: var(--bg-primary); 
+    color: var(--text-primary); 
+    line-height: 1.6; 
+    min-height: 100vh; 
+    overflow-x: hidden;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.1) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(16, 185, 129, 0.05) 0%, transparent 20%);
+}
+
+.stars {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 90px 40px, #fff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 130px 80px, #fff, rgba(0,0,0,0));
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    opacity: 0.3;
+    animation: twinkle 5s infinite;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.3; transform: translateY(0); }
+    50% { opacity: 0.5; }
+    100% { opacity: 0.3; transform: translateY(-20px); }
+}
+
+.container { 
+    position: relative; 
+    z-index: 1; 
+    max-width: 600px; 
+    margin: 0 auto; 
+    padding: 15px; 
+    padding-bottom: 80px;
+}
+
+.hdr { 
+    background: var(--bg-glass); 
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border-light); 
+    border-radius: var(--radius-lg); 
+    padding: 15px; 
+    margin-bottom: 15px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    flex-wrap: wrap; 
+    gap: 10px; 
+    position: sticky;
+    top: 10px;
+    z-index: 100;
+}
+
+.usr-info { display: flex; align-items: center; gap: 12px; }
+.usr-av { 
+    width: 42px; height: 42px; 
+    background: linear-gradient(135deg, var(--accent-gold), #f97316); 
+    border-radius: 50%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-weight: 900; 
+    color: var(--bg-primary); 
+    font-size: 1.1rem; 
+}
+.usr-det h3 { font-size: 1rem; font-weight: 800; color: var(--text-primary); }
+.usr-det span { font-size: 0.75rem; color: var(--accent-emerald); font-weight: 600; background: rgba(16, 185, 129, 0.1); padding: 2px 8px; border-radius: 10px; }
+
+.nav-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.btn-nav { 
+    background: rgba(99, 102, 241, 0.15); 
+    border: 1px solid rgba(99, 102, 241, 0.3); 
+    color: #a5b4fc; 
+    padding: 8px 12px; 
+    border-radius: var(--radius-md); 
+    font-size: 0.8rem; 
+    cursor: pointer; 
+    font-weight: 700; 
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: 0.2s;
+}
+.btn-nav:hover { background: rgba(99, 102, 241, 0.25); }
+
+.scr-card { 
+    background: linear-gradient(145deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.9)); 
+    border: 1px solid var(--border-gold); 
+    border-radius: var(--radius-lg); 
+    padding: 20px; 
+    margin-bottom: 15px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-around; 
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+.scr-card::before {
+    content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(251,191,36,0.05) 0%, transparent 60%);
+    animation: rotate 20s linear infinite;
+}
+@keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+.circ { width: 100px; height: 100px; position: relative; z-index: 2; }
+.circ svg { transform: rotate(-90deg); width: 100%; height: 100%; }
+.c-bg { fill: none; stroke: rgba(255,255,255,0.05); stroke-width: 8; }
+.c-f { fill: none; stroke: url(#g1); stroke-width: 8; stroke-linecap: round; stroke-dasharray: 280; stroke-dashoffset: 280; transition: 1s ease-out; }
+.c-t { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; }
+.c-t strong { display: block; font-size: 1.8rem; font-weight: 900; color: var(--text-primary); }
+.c-t span { font-size: 0.75rem; color: var(--text-secondary); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+
+.lvl { flex: 1; cursor: pointer; margin-right: 20px; z-index: 2; }
+.lvl-hd { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.lvl-nm { font-weight: 800; font-size: 1.1rem; color: var(--accent-gold); display: flex; align-items: center; gap: 6px; }
+.lvl-sb { font-size: 0.8rem; color: var(--text-secondary); }
+.lvl-bar { height: 8px; background: rgba(255,255,255,0.05); border-radius: 10px; overflow: hidden; }
+.lvl-f { height: 100%; background: linear-gradient(90deg, var(--accent-emerald), var(--accent-gold)); width: 0%; transition: 1s ease-out; }
+.lvl-det { display: none; margin-top: 12px; background: rgba(0,0,0,0.3); border-radius: var(--radius-md); padding: 10px; font-size: 0.8rem; border: 1px solid var(--border-light); }
+.lvl-det.on { display: block; animation: slideDown 0.3s; }
+@keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+.lvl-t { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.lvl-t:last-child { border: none; }
+.lvl-t.on { color: var(--accent-gold); font-weight: 800; }
+
+.sec { 
+    background: var(--bg-card); 
+    border: 1px solid var(--border-light); 
+    border-radius: var(--radius-lg); 
+    padding: 15px; 
+    margin-bottom: 12px; 
+    transition: 0.3s;
+}
+.sec:hover { border-color: rgba(255,255,255,0.15); }
+
+.sec-hd { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; cursor: pointer; user-select: none; }
+.sec-ic { 
+    width: 36px; height: 36px; 
+    border-radius: var(--radius-md); 
+    display: flex; align-items: center; justify-content: center; 
+    background: rgba(255,255,255,0.05); 
+    color: var(--accent-gold);
+}
+.sec-nm { font-size: 1.05rem; font-weight: 800; flex: 1; color: var(--text-primary); }
+.sec-bdg { background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 800; border: 1px solid rgba(16, 185, 129, 0.2); }
+
+.hdth { 
+    background: rgba(251, 191, 36, 0.08); 
+    border-right: 4px solid var(--accent-gold); 
+    padding: 12px 15px; 
+    margin-bottom: 15px; 
+    border-radius: var(--radius-md); 
+    font-size: 0.85rem; 
+    color: #e2e8f0; 
+    line-height: 1.7; 
+    font-weight: 500;
+}
+.hdth strong { color: var(--accent-gold); display: block; margin-bottom: 5px; font-weight: 800; font-size: 0.9rem; }
+
+.op-g { display: grid; gap: 8px; }
+.op-i { 
+    display: flex; align-items: center; justify-content: space-between; 
+    background: rgba(255,255,255,0.03); 
+    border: 1px solid rgba(255,255,255,0.05); 
+    border-radius: var(--radius-md); 
+    padding: 12px 15px; 
+    cursor: pointer; 
+    transition: all 0.2s; 
+}
+.op-i:hover { background: rgba(255,255,255,0.06); }
+.op-i.sl { border-color: var(--accent-emerald); background: rgba(16, 185, 129, 0.1); }
+.op-l { display: flex; align-items: center; gap: 12px; }
+.op-r { width: 18px; height: 18px; border: 2px solid var(--text-secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: 0.2s; }
+.op-i.sl .op-r { border-color: var(--accent-emerald); background: var(--accent-emerald); }
+.op-r::after { content: ''; width: 6px; height: 6px; background: var(--bg-primary); border-radius: 50%; opacity: 0; transform: scale(0); transition: 0.2s; }
+.op-i.sl .op-r::after { opacity: 1; transform: scale(1); }
+.op-pt { font-weight: 800; color: var(--accent-gold); font-size: 0.85rem; background: rgba(251, 191, 36, 0.1); padding: 2px 6px; border-radius: 4px; }
+
+.pr-g { margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 10px; }
+.pr-g:last-child { border: none; margin: 0; padding: 0; }
+.pr-nm { font-weight: 800; color: var(--accent-gold); font-size: 0.95rem; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.pr-st { font-size: 0.75rem; padding: 3px 8px; border-radius: 6px; font-weight: 700; }
+.pr-st.ok { background: rgba(16, 185, 129, 0.2); color: var(--accent-emerald); }
+.pr-st.no { background: rgba(239, 68, 68, 0.1); color: #f87171; }
+
+.chk { 
+    display: flex; align-items: center; justify-content: space-between; 
+    background: rgba(255,255,255,0.03); 
+    border: 1px solid rgba(255,255,255,0.05); 
+    border-radius: var(--radius-md); 
+    padding: 12px 15px; 
+    margin-bottom: 8px; 
+    cursor: pointer; 
+    transition: 0.2s;
+}
+.chk:hover { background: rgba(255,255,255,0.05); }
+.chk.on { border-color: var(--accent-emerald); background: rgba(16, 185, 129, 0.1); }
+.chk-l { display: flex; align-items: center; gap: 12px; }
+.chk-b { width: 20px; height: 20px; border: 2px solid var(--text-secondary); border-radius: 6px; display: flex; align-items: center; justify-content: center; transition: 0.2s; }
+.chk.on .chk-b { background: var(--accent-emerald); border-color: var(--accent-emerald); }
+.chk-b svg { width: 12px; height: 12px; stroke: var(--bg-primary); stroke-width: 4; opacity: 0; transform: scale(0); transition: 0.2s; }
+.chk.on .chk-b svg { opacity: 1; transform: scale(1); }
+
+.sec-ct { max-height: 2000px; overflow: hidden; transition: max-height 0.4s; }
+.sec.col .sec-ct { max-height: 0; }
+.col-ic { transition: transform 0.4s; }
+.sec.col .col-ic { transform: rotate(180deg); }
+
+.nav-g { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px; }
+.nav-lg { 
+    padding: 12px; 
+    border-radius: var(--radius-md); 
+    font-weight: 800; 
+    cursor: pointer; 
+    border: 1px solid var(--border-light); 
+    background: rgba(255,255,255,0.03); 
+    color: var(--text-primary); 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 8px; 
+    transition: 0.2s; 
+    font-size: 0.95rem;
+}
+.nav-lg:hover { background: rgba(255,255,255,0.08); }
+.btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 14px; border-radius: var(--radius-md); font-weight: 800; cursor: pointer; border: none; font-family: inherit; font-size: 1rem; transition: 0.2s; }
+.btn-pr { background: linear-gradient(135deg, var(--accent-emerald), #059669); color: white; }
+.btn-home { background: rgba(251, 191, 36, 0.1); border: 1px solid rgba(251, 191, 36, 0.3); color: var(--accent-gold); padding: 10px 20px; border-radius: var(--radius-md); font-size: 0.9rem; cursor: pointer; font-weight: 700; width: auto; }
+
+.stats-box { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); overflow: hidden; backdrop-filter: blur(10px); }
+.stats-hd { padding: 20px; text-align: center; border-bottom: 1px solid var(--border-light); background: rgba(0,0,0,0.2); }
+.stats-hd h1 { font-size: 1.4rem; color: var(--accent-gold); font-weight: 900; }
+
+.st-hd-stats { display: flex; justify-content: center; gap: 20px; padding: 20px; background: linear-gradient(180deg, rgba(251, 191, 36, 0.05) 0%, transparent 100%); }
+.st-stat-box { background: rgba(30, 41, 59, 0.8); border: 1px solid var(--border-gold); border-radius: var(--radius-lg); padding: 20px 30px; text-align: center; min-width: 120px; }
+.st-stat-val { display: block; font-size: 2rem; font-weight: 900; color: var(--accent-gold); text-shadow: 0 0 20px rgba(251, 191, 36, 0.3); }
+.st-stat-lbl { font-size: 0.9rem; color: var(--text-secondary); font-weight: 600; }
+
+.str-b { background: linear-gradient(135deg, rgba(249, 115, 22, 0.15), transparent); border: 1px solid rgba(249, 115, 22, 0.2); border-radius: var(--radius-md); padding: 15px; margin: 15px; display: flex; align-items: center; gap: 15px; }
+.str-i { font-size: 2rem; }
+.str-b h3 { font-size: 1.1rem; color: var(--text-primary); margin-bottom: 2px; }
+.str-b p { font-size: 0.8rem; color: var(--text-secondary); }
+
+.d-list-h { padding: 15px; display: flex; justify-content: space-between; font-weight: 800; font-size: 1rem; border-bottom: 1px solid var(--border-light); background: rgba(0,0,0,0.2); }
+.d-item { padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: 0.2s; }
+.d-item:hover { background: rgba(255,255,255,0.03); }
+.d-sc { font-weight: 800; color: var(--accent-emerald); font-size: 1.1rem; background: rgba(16, 185, 129, 0.1); padding: 4px 10px; border-radius: 8px; }
+
+.ed-btn { background: linear-gradient(135deg, #f59e0b, #d97706); color: white; border: none; padding: 8px 16px; border-radius: 8px; cursor: pointer; font-size: 0.85rem; margin-left: 10px; font-weight: 700; transition: transform 0.2s; }
+.ed-btn:hover { transform: scale(1.05); }
+
+.ach-box { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); overflow: hidden; backdrop-filter: blur(10px); }
+.ach-hd { padding: 25px; text-align: center; border-bottom: 1px solid var(--border-light); background: rgba(0,0,0,0.2); }
+.ach-hd h1 { font-size: 1.6rem; color: var(--accent-gold); font-weight: 900; }
+
+.ach-intro { padding: 20px; text-align: center; background: linear-gradient(180deg, rgba(251, 191, 36, 0.05) 0%, transparent 100%); border-bottom: 1px solid var(--border-gold); }
+.ach-quran { font-family: 'Tajawal', serif; font-size: 1.2rem; color: var(--accent-gold); line-height: 2; margin-bottom: 15px; }
+
+.ach-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding: 25px; }
+
+.ach-card { 
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-lg); 
+    padding: 25px 20px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 15px; 
+    min-height: 200px; transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden;
+}
+
+.ach-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.1) 0%, transparent 60%); opacity: 0; transition: 0.5s; }
+.ach-card:hover::before { opacity: 1; }
+
+.ach-ic { 
+    width: 70px; height: 70px; background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)); border-radius: 20px; 
+    display: flex; align-items: center; justify-content: center; color: var(--text-secondary); 
+    transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 10px 25px rgba(0,0,0,0.3); position: relative; z-index: 1;
+}
+
+.ach-ic svg { width: 32px; height: 32px; stroke-width: 1.5; }
+
+.ach-tl { font-weight: 800; color: var(--text-primary); font-size: 1.2rem; position: relative; z-index: 1; }
+.ach-ds { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; position: relative; z-index: 1; }
+
+.ach-card.done { 
+    border-color: rgba(251, 191, 36, 0.5); background: linear-gradient(145deg, rgba(251, 191, 36, 0.12), rgba(251, 191, 36, 0.03)); 
+    box-shadow: 0 0 40px rgba(251, 191, 36, 0.2); transform: translateY(-5px) scale(1.02);
+}
+
+.ach-card.done .ach-ic { 
+    color: var(--accent-gold); background: linear-gradient(145deg, rgba(251, 191, 36, 0.25), rgba(251, 191, 36, 0.1)); 
+    transform: scale(1.15) rotate(5deg); box-shadow: 0 0 30px rgba(251, 191, 36, 0.4);
+}
+
+.ach-card.done .ach-tl { color: var(--accent-gold); text-shadow: 0 0 15px rgba(251, 191, 36, 0.5); }
+
+.ach-card.done::after {
+    content: ''; position: absolute; top: 15px; left: 15px; width: 8px; height: 8px;
+    background: var(--accent-emerald); border-radius: 50%; box-shadow: 0 0 10px var(--accent-emerald); animation: pulse 2s infinite;
+}
+
+@keyframes pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: 0.5; } }
+
+.report-box { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); overflow: hidden; }
+.report-hd { padding: 25px 20px; text-align: center; background: linear-gradient(180deg, rgba(251, 191, 36, 0.1) 0%, transparent 100%); border-bottom: 1px solid var(--border-gold); }
+.report-hd h1 { font-size: 1.5rem; color: var(--accent-gold); font-weight: 900; margin-bottom: 5px; }
+.report-hd p { color: var(--text-secondary); font-size: 0.9rem; }
+
+.report-summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 15px; background: rgba(0,0,0,0.2); }
+.report-sum-card { background: rgba(30, 41, 59, 0.6); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 15px 10px; text-align: center; }
+.report-sum-val { display: block; font-size: 1.5rem; font-weight: 900; color: var(--accent-gold); }
+.report-sum-lbl { font-size: 0.75rem; color: var(--text-secondary); font-weight: 600; }
+
+.day-list { max-height: 500px; overflow-y: auto; }
+.day-list::-webkit-scrollbar { width: 6px; }
+.day-list::-webkit-scrollbar-track { background: rgba(0,0,0,0.1); }
+.day-list::-webkit-scrollbar-thumb { background: var(--border-light); border-radius: 10px; }
+
+.day-card { background: rgba(255,255,255,0.02); border-bottom: 1px solid rgba(255,255,255,0.05); padding: 15px; transition: 0.2s; }
+.day-card:hover { background: rgba(255,255,255,0.04); }
+.day-card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.day-card-date { font-weight: 800; font-size: 1rem; color: var(--text-primary); }
+.day-card-score { background: linear-gradient(135deg, var(--accent-gold), #f97316); color: var(--bg-primary); padding: 4px 12px; border-radius: 20px; font-weight: 800; font-size: 0.9rem; }
+
+.day-progress-bar { height: 8px; background: rgba(255,255,255,0.05); border-radius: 10px; overflow: hidden; margin-bottom: 10px; }
+.day-progress-fill { height: 100%; border-radius: 10px; transition: width 0.5s ease; }
+.day-progress-fill.excellent { background: linear-gradient(90deg, #10b981, #34d399); }
+.day-progress-fill.good { background: linear-gradient(90deg, #fbbf24, #fcd34d); }
+.day-progress-fill.average { background: linear-gradient(90deg, #f97316, #fb923c); }
+.day-progress-fill.weak { background: linear-gradient(90deg, #ef4444, #f87171); }
+
+.day-analysis { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 0.85rem; }
+.analysis-item { background: rgba(255,255,255,0.03); padding: 8px 10px; border-radius: var(--radius-sm); }
+.analysis-item.positive { border-right: 3px solid var(--accent-emerald); }
+.analysis-item.negative { border-right: 3px solid #ef4444; }
+.analysis-item strong { display: block; font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 2px; }
+.analysis-item span { color: var(--text-primary); font-weight: 600; }
+
+.day-empty-msg { text-align: center; color: var(--text-secondary); padding: 20px; font-size: 0.9rem; }
+
+.mdl { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(5, 11, 20, 0.95); z-index: 2000; display: none; overflow-y: auto; padding: 20px; backdrop-filter: blur(5px); }
+.mdl-c { max-width: 500px; margin: 0 auto; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-xl); padding: 25px; position: relative; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); animation: zoomIn 0.3s; }
+@keyframes zoomIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+.cls-btn { position: absolute; top: 15px; left: 15px; background: rgba(255,255,255,0.1); border: none; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; color: var(--text-secondary); display: flex; align-items: center; justify-content: center; transition: 0.2s; z-index: 10; }
+.cls-btn:hover { background: rgba(255,255,255,0.2); color: var(--text-primary); transform: rotate(90deg); }
+
+.res-hd { text-align: center; margin-bottom: 20px; padding-top: 10px; }
+.res-hd h2 { color: var(--accent-gold); font-size: 1.3rem; font-weight: 900; }
+.res-g { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+.res-c { background: rgba(255,255,255,0.03); padding: 15px; border-radius: var(--radius-md); text-align: center; border: 1px solid rgba(255,255,255,0.05); }
+.res-c strong { display: block; font-size: 1.3rem; font-weight: 900; color: var(--text-primary); margin-bottom: 4px; }
+.res-c span { font-size: 0.8rem; color: var(--text-secondary); font-weight: 600; }
+
+.res-total { text-align: center; margin: 20px 0; padding: 20px; background: rgba(251, 191, 36, 0.05); border-radius: var(--radius-lg); border: 1px solid rgba(251, 191, 36, 0.2); }
+.res-total-val { font-size: 2.5rem; font-weight: 900; color: var(--accent-gold); }
+.res-total-lbl { font-size: 0.9rem; color: var(--text-secondary); margin-top: 5px; }
+
+.res-list { background: rgba(0,0,0,0.2); border-radius: var(--radius-md); padding: 15px; margin-top: 15px; border: 1px solid rgba(255,255,255,0.05); }
+.res-r { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.9rem; }
+.res-r:last-child { border: none; }
+.res-r span:last-child { font-weight: 700; color: var(--text-primary); }
+
+.an-g { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-top: 10px; }
+.an-i { background: rgba(255,255,255,0.03); border-radius: var(--radius-md); padding: 8px 4px; text-align: center; border: 1px solid rgba(255,255,255,0.05); }
+.an-v { font-size: 0.9rem; font-weight: 900; display: block; margin-bottom: 2px; }
+.an-v.exc { color: var(--accent-emerald); }
+.an-v.gd { color: var(--accent-gold); }
+.an-v.wk { color: #f87171; }
+.an-l { font-size: 0.6rem; color: var(--text-secondary); font-weight: 600; }
+
+.edit-mode-indicator { background: rgba(239, 68, 68, 0.15); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.3); padding: 10px 15px; border-radius: var(--radius-md); font-size: 0.85rem; font-weight: 700; display: none; margin-bottom: 15px; text-align: center; }
+.edit-mode-indicator.active { display: flex; align-items: center; justify-content: center; gap: 10px; }
+.cancel-edit-btn { background: rgba(239, 68, 68, 0.2); border: none; color: inherit; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-weight: 800; font-size: 0.75rem; }
+
+.date-banner { background: rgba(251, 191, 36, 0.1); border: 1px solid var(--border-gold); border-radius: var(--radius-md); padding: 10px 15px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; }
+.date-h { color: var(--accent-gold); font-weight: 800; font-size: 0.95rem; }
+.date-g { color: var(--text-secondary); font-size: 0.85rem; }
+
+.wisdom-box { background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(16, 185, 129, 0.05)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: var(--radius-md); padding: 15px; margin-bottom: 15px; text-align: center; font-size: 0.9rem; color: #c7d2fe; }
+
+.suc-mdl { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(5, 11, 20, 0.95); z-index: 3000; display: none; justify-content: center; align-items: center; padding: 20px; backdrop-filter: blur(10px); }
+.suc-mdl.show { display: flex; }
+
+.suc-c { background: linear-gradient(145deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.95)); border: 2px solid var(--accent-gold); border-radius: var(--radius-xl); padding: 30px; max-width: 400px; width: 100%; text-align: center; animation: sucIn 0.5s ease-out; box-shadow: 0 0 60px rgba(251, 191, 36, 0.3); }
+
+@keyframes sucIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+.suc-ic { width: 80px; height: 80px; background: linear-gradient(135deg, var(--accent-emerald), #059669); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 30px rgba(16, 185, 129, 0.4); animation: pulseSuc 2s infinite; }
+
+@keyframes pulseSuc { 0%, 100% { transform: scale(1); box-shadow: 0 0 30px rgba(16, 185, 129, 0.4); } 50% { transform: scale(1.05); box-shadow: 0 0 50px rgba(16, 185, 129, 0.6); } }
+
+.suc-ic svg { width: 40px; height: 40px; stroke: white; stroke-width: 3; }
+
+.suc-tl { font-size: 1.5rem; font-weight: 900; color: var(--accent-gold); margin-bottom: 20px; }
+.suc-msg { font-size: 1rem; color: var(--text-primary); line-height: 2; margin-bottom: 20px; white-space: pre-line; }
+.suc-dua { background: rgba(251, 191, 36, 0.1); border: 1px solid var(--border-gold); border-radius: var(--radius-md); padding: 15px; margin-bottom: 20px; font-size: 0.95rem; color: #e2e8f0; line-height: 1.8; }
+.suc-btn { background: linear-gradient(135deg, var(--accent-gold), #f97316); border: none; color: var(--bg-primary); padding: 14px 30px; border-radius: var(--radius-md); font-size: 1rem; font-weight: 800; cursor: pointer; font-family: inherit; transition: transform 0.2s; }
+.suc-btn:hover { transform: scale(1.05); }
+
+.page { display: none; }
+.page.active { display: block; }
+.sub-page { display: none; }
+.sub-page.active { display: block; }
+
+/* About Page Styles */
+.about-box { 
+    background: var(--bg-card); 
+    border: 1px solid var(--border-light); 
+    border-radius: var(--radius-lg); 
+    overflow: hidden; 
+}
+
+.about-header {
+    background: linear-gradient(180deg, rgba(251, 191, 36, 0.15) 0%, transparent 100%);
+    padding: 30px 20px;
+    text-align: center;
+    border-bottom: 1px solid var(--border-gold);
+}
+
+.about-title {
+    font-size: 2rem;
+    color: var(--accent-gold);
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.about-subtitle {
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+
+.about-bismillah {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), transparent);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+}
+
+.bismillah-text {
+    font-size: 1.3rem;
+    color: var(--accent-emerald);
+    line-height: 2.2;
+    font-weight: 700;
+}
+
+.about-intentions {
+    padding: 0 20px 20px;
+}
+
+.intention-section {
+    background: rgba(255,255,255,0.02);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.intention-title {
+    font-size: 1.1rem;
+    color: var(--accent-gold);
+    font-weight: 800;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.intention-text {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    line-height: 2;
+}
+
+.dua-section {
+    padding: 20px;
+    background: linear-gradient(180deg, rgba(251, 191, 36, 0.1) 0%, transparent 100%);
+    border-top: 1px solid var(--border-gold);
+}
+
+.dua-box {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(251, 191, 36, 0.2);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    text-align: center;
+}
+
+.dua-title {
+    font-size: 1rem;
+    color: var(--accent-gold);
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.dua-text {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    line-height: 2.2;
+    margin-bottom: 15px;
+}
+
+.dua-highlight {
+    color: var(--accent-gold);
+    font-weight: 700;
+}
+
+.dua-countries {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.country-tag {
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #fca5a5;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.final-dua {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), transparent);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: var(--radius-md);
+    padding: 15px;
+    margin-top: 15px;
+}
+
+.final-dua-text {
+    font-size: 0.95rem;
+    color: var(--accent-emerald);
+    line-height: 2;
+    text-align: center;
+    font-weight: 600;
+}
+
+.sahabi-quote {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), transparent);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+}
+
+.sahabi-quote-text {
+    font-size: 1rem;
+    color: #c7d2fe;
+    line-height: 2.2;
+    margin-bottom: 15px;
+}
+
+.sahabi-name {
+    font-size: 1rem;
+    color: var(--accent-gold);
+    font-weight: 800;
+    margin-top: 10px;
+}
+
+@media (max-width: 600px) { 
+    .an-g { grid-template-columns: repeat(3, 1fr); } 
+    .scr-card { flex-direction: column; text-align: center; gap: 20px; } 
+    .lvl { margin-right: 0; width: 100%; }
+    .st-stat-box { padding: 15px 20px; min-width: 100px; }
+    .st-stat-val { font-size: 1.6rem; }
+    .ach-grid { gap: 15px; padding: 15px; }
+    .ach-card { min-height: 180px; padding: 20px 15px; }
+    .report-summary { grid-template-columns: 1fr; }
+    .day-analysis { grid-template-columns: 1fr; }
+    .about-title { font-size: 1.6rem; }
+    .bismillah-text { font-size: 1.1rem; }
+}
+</style>
+</head>
+<body>
+<div class="stars"></div>
+<svg width="0" height="0"><defs><linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#10b981"/><stop offset="100%" stop-color="#fbbf24"/></linearGradient></defs></svg>
+
+<div class="suc-mdl" id="sucMdl">
+    <div class="suc-c">
+        <div class="suc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <h2 class="suc-tl" id="sucTl">تم الحفظ بنجاح</h2>
+        <p class="suc-msg" id="sucMsg">تقبل الله منا ومنك صالح الأعمال
+ورزقنا الإخلاص في القول والفعل والعمل</p>
+        <div class="suc-dua">اللهم إنا نعوذ بك من أن نشرك بك شيئاً نعلمه، ونستغفرك لما لا نعلمه</div>
+        <button class="suc-btn" onclick="clsSucMdl()">الحمد لله</button>
+    </div>
+</div>
+
+<div class="container page active" id="mainApp">
+    <div class="hdr">
+        <div class="usr-info">
+            <div class="usr-av" id="av">م</div>
+            <div class="usr-det"><h3 id="un">مرحباً</h3><span id="stNm">0 أيام</span></div>
+        </div>
+        <div class="nav-actions">
+            <button class="btn-nav" onclick="shPg('about')">من نحن</button>
+            <button class="btn-nav" onclick="shPg('stats')">الإحصائيات</button>
+            <button class="btn-nav" onclick="shPg('report')">تقرير الشهر</button>
+            <button class="btn-nav" onclick="shPg('achievements')">الإنجازات</button>
+        </div>
+    </div>
+
+    <div class="wisdom-box" id="dailyWisdom">جاري تحميل حكمة اليوم...</div>
+
+    <div id="editModeMsg" class="edit-mode-indicator">
+        <span>وضع التعديل: أنت تقوم بتعديل سجل يوم سابق</span>
+        <button class="cancel-edit-btn" onclick="cancelEdit()">إلغاء</button>
+    </div>
+
+    <div class="date-banner">
+        <strong class="date-h" id="hDate">...</strong>
+        <span class="date-g" id="rDay">...</span>
+    </div>
+
+    <div class="sub-page active" id="p1">
+        <div class="scr-card">
+            <div class="circ">
+                <svg viewBox="0 0 100 100"><circle class="c-bg" cx="50" cy="50" r="42"></circle><circle class="c-f" id="circ" cx="50" cy="50" r="42"></circle></svg>
+                <div class="c-t"><strong id="scr">0</strong><span>درجة</span></div>
+            </div>
+            <div class="lvl" onclick="togLvl()">
+                <div class="lvl-hd">
+                    <div class="lvl-nm" id="lvNm">مبتدئ <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="6 9 12 15 18 9"/></svg></div>
+                    <div class="lvl-sb" id="lvTt">بداية الطريق</div>
+                </div>
+                <div class="lvl-bar"><div class="lvl-f" id="lvBr" style="width:0%"></div></div>
+                <div class="lvl-det" id="lvDet"></div>
+            </div>
+        </div>
+
+        <div class="sec">
+            <div class="sec-hd"><div class="sec-ic" style="background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><h2 class="sec-nm">الصلوات المفروضة</h2><span class="sec-bdg" id="prBdg">0</span></div>
+            <div class="hdth"><strong>فضل الصلاة في وقتها وفي جماعة:</strong><br>قال رسول الله ﷺ: «صَلَاةُ الْجَمَاعَةِ تَفْضُلُ صَلَاةَ الْفَذِّ بِسَبْعٍ وَعِشْرِينَ دَرَجَةً» متفق عليه.</div>
+            <div class="pr-g"><div class="pr-nm">الفجر <span class="pr-st no" id="fajrSt">-</span></div><div class="op-g" id="fajrOpts"><div class="op-i" data-v="15" data-g="fajr"><div class="op-l"><div class="op-r"></div><span>في وقتها في جماعة</span></div><span class="op-pt">15</span></div><div class="op-i" data-v="10" data-g="fajr"><div class="op-l"><div class="op-r"></div><span>في جماعة</span></div><span class="op-pt">10</span></div><div class="op-i" data-v="5" data-g="fajr"><div class="op-l"><div class="op-r"></div><span>متأخراً</span></div><span class="op-pt">5</span></div></div></div>
+            <div class="pr-g"><div class="pr-nm">الظهر <span class="pr-st no" id="dhuhrSt">-</span></div><div class="op-g" id="dhuhrOpts"><div class="op-i" data-v="12" data-g="dhuhr"><div class="op-l"><div class="op-r"></div><span>في وقتها في جماعة</span></div><span class="op-pt">12</span></div><div class="op-i" data-v="8" data-g="dhuhr"><div class="op-l"><div class="op-r"></div><span>في جماعة</span></div><span class="op-pt">8</span></div><div class="op-i" data-v="4" data-g="dhuhr"><div class="op-l"><div class="op-r"></div><span>متأخراً</span></div><span class="op-pt">4</span></div></div></div>
+            <div class="pr-g"><div class="pr-nm">العصر <span class="pr-st no" id="asrSt">-</span></div><div class="op-g" id="asrOpts"><div class="op-i" data-v="12" data-g="asr"><div class="op-l"><div class="op-r"></div><span>في وقتها في جماعة</span></div><span class="op-pt">12</span></div><div class="op-i" data-v="8" data-g="asr"><div class="op-l"><div class="op-r"></div><span>في جماعة</span></div><span class="op-pt">8</span></div><div class="op-i" data-v="4" data-g="asr"><div class="op-l"><div class="op-r"></div><span>متأخراً</span></div><span class="op-pt">4</span></div></div></div>
+            <div class="pr-g"><div class="pr-nm">المغرب <span class="pr-st no" id="maghribSt">-</span></div><div class="op-g" id="maghribOpts"><div class="op-i" data-v="12" data-g="maghrib"><div class="op-l"><div class="op-r"></div><span>في وقتها في جماعة</span></div><span class="op-pt">12</span></div><div class="op-i" data-v="8" data-g="maghrib"><div class="op-l"><div class="op-r"></div><span>في جماعة</span></div><span class="op-pt">8</span></div><div class="op-i" data-v="4" data-g="maghrib"><div class="op-l"><div class="op-r"></div><span>متأخراً</span></div><span class="op-pt">4</span></div></div></div>
+            <div class="pr-g"><div class="pr-nm">العشاء <span class="pr-st no" id="ishaSt">-</span></div><div class="op-g" id="ishaOpts"><div class="op-i" data-v="12" data-g="isha"><div class="op-l"><div class="op-r"></div><span>في وقتها في جماعة</span></div><span class="op-pt">12</span></div><div class="op-i" data-v="8" data-g="isha"><div class="op-l"><div class="op-r"></div><span>في جماعة</span></div><span class="op-pt">8</span></div><div class="op-i" data-v="4" data-g="isha"><div class="op-l"><div class="op-r"></div><span>متأخراً</span></div><span class="op-pt">4</span></div></div></div>
+        </div>
+
+        <div class="sec">
+            <div class="sec-hd"><div class="sec-ic" style="background: rgba(251, 191, 36, 0.15); color: var(--accent-gold);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><h2 class="sec-nm">القرآن الكريم</h2><span class="sec-bdg" id="qrBdg">0</span></div>
+            <div class="hdth"><strong>فضل قراءة القرآن:</strong><br>قال رسول الله ﷺ: «مَنْ قَرَأَ حَرْفًا مِنْ كِتَابِ اللَّهِ فَلَهُ بِهِ حَسَنَةٌ، وَالْحَسَنَةُ بِعَشْرِ أَمْثَالِهَا، لَا أَقُولُ ألم حَرْفٌ، وَلَكِنْ أَلِفٌ حَرْفٌ وَلَامٌ حَرْفٌ وَمِيمٌ حَرْفٌ» رواه الترمذي.</div>
+            <div class="pr-g" style="border:none;"><div class="pr-nm">مقدار القراءة <span class="pr-st no" id="quranSt">-</span></div>
+            <div class="op-g" id="quranOpts">
+                <div class="op-i" data-v="10" data-g="quran"><div class="op-l"><div class="op-r"></div><span>حزب</span></div><span class="op-pt">10</span></div>
+                <div class="op-i" data-v="20" data-g="quran"><div class="op-l"><div class="op-r"></div><span>جزء كامل</span></div><span class="op-pt">20</span></div>
+                <div class="op-i" data-v="30" data-g="quran"><div class="op-l"><div class="op-r"></div><span>جزآن</span></div><span class="op-pt">30</span></div>
+                <div class="op-i" data-v="40" data-g="quran"><div class="op-l"><div class="op-r"></div><span>ثلاثة أجزاء</span></div><span class="op-pt">40</span></div>
+                <div class="op-i" data-v="50" data-g="quran"><div class="op-l"><div class="op-r"></div><span>+3 أجزاء</span></div><span class="op-pt">50</span></div>
+            </div></div>
+        </div>
+
+        <div class="nav-g"><div></div><button class="nav-lg" onclick="goTo(2)">السنن والأذكار <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button></div>
+    </div>
+
+    <div class="sub-page" id="p2">
+        <div style="display:flex; justify-content:space-between; margin-bottom:15px; gap:10px;">
+            <button class="btn-home" onclick="goTo(1)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> الصلوات والقرآن</button>
+            <button class="btn-home" onclick="goTo(1)">الرئيسية</button>
+        </div>
+
+        <div class="sec" id="ptSec"><div class="sec-hd" onclick="togSec('ptSec')"><div class="sec-ic" style="background: rgba(139,92,246,0.15); color: #a78bfa;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4"/><path d="m16.2 7.8 2.9-2.9"/><path d="M18 12h4"/><path d="m16.2 16.2 2.9 2.9"/><path d="M12 18v4"/><path d="m4.9 19.1 2.9-2.9"/><path d="M2 12h4"/><path d="m4.9 4.9 2.9 2.9"/></svg></div><h2 class="sec-nm">أذكار بعد الصلاة</h2><span class="sec-bdg" id="ptBdg">0</span><svg class="col-ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="sec-ct">
+            <div class="hdth">قال رسول الله ﷺ: «مَنْ سَبَّحَ اللَّهَ فِي دُبُرِ كُلِّ صَلَاةٍ ثَلَاثًا وَثَلَاثِينَ، وَحَمِدَ اللَّهَ ثَلَاثًا وَثَلَاثِينَ، وَكَبَّرَ اللَّهَ ثَلَاثًا وَثَلَاثِينَ، فَتِلْكَ تِسْعَةٌ وَتِسْعُونَ، وَقَالَ تَمَامَ الْمِائَةِ: لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ، غُفِرَتْ خَطَايَاهُ وَإِنْ كَانَتْ مِثْلَ زَبَدِ الْبَحْرِ» رواه مسلم.</div>
+            <div class="chk" id="postFajr" data-v="10"><div class="chk-l"><div class="chk-b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg></div><span>أتممت أذكار الفجر</span></div><span class="op-pt">10</span></div>
+            <div class="chk" id="postDhuhr" data-v="10"><div class="chk-l"><div class="chk-b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg></div><span>أتممت أذكار الظهر</span></div><span class="op-pt">10</span></div>
+            <div class="chk" id="postAsr" data-v="10"><div class="chk-l"><div class="chk-b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg></div><span>أتممت أذكار العصر</span></div><span class="op-pt">10</span></div>
+            <div class="chk" id="postMaghrib" data-v="10"><div class="chk-l"><div class="chk-b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg></div><span>أتممت أذكار المغرب</span></div><span class="op-pt">10</span></div>
+            <div class="chk" id="postIsha" data-v="10"><div class="chk-l"><div class="chk-b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg></div><span>أتممت أذكار العشاء</span></div><span class="op-pt">10</span></div>
+        </div></div>
+
+        <div class="sec" id="snSec"><div class="sec-hd" onclick="togSec('snSec')"><div class="sec-ic" style="background: rgba(168,85,247,0.15); color: #c084fc;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h2 class="sec-nm">السنن الرواتب</h2><span class="sec-bdg" id="snBdg">0</span><svg class="col-ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="sec-ct">
+            <div class="hdth">عَنْ أُمِّ المُؤمِنِينَ أُمِّ حَبِيبَةَ رَمْلَةَ بِنتِ أبي سُفيانَ رضي الله عنهما قَالت: سَمِعْتُ رسولَ الله صلى الله عليه وسلم، يقولُ: «مَا مِنْ عَبْدٍ مُسْلِمٍ يُصَلِّي لله تعالىٰ كُلَّ يَوْمٍ ثِنْتَيْ عَشَرَةَ رَكْعَةً تَطَوُّعاً غَيْرَ الفَرِيضَةِ، إلَّا بَنَىٰ اللهُ لهُ بَيْتاً في الجَنَّةِ ــ أَوْ ــ إلَّا بُنِيَ لَه بَيْتٌ في الجَنَّةِ». رواه مسلم.</div>
+            <div class="chk" id="sFajr" data-v="8"><div class="chk-l"><div class="chk-b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg></div><span>ركعتين الفجر</span></div><span class="op-pt">8</span></div>
+            <div class="chk" id="sDhuhrB" data-v="5"><div class="chk-l"><div class="chk-b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg></div><span>أربع قبل الظهر</span></div><span class="op-pt">5</span></div>
+            <div class="chk" id="sDhuhrA" data-v="6"><div class="chk-l"><div class="chk-b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg></div><span>ركعتين بعد الظهر</span></div><span class="op-pt">6</span></div>
+            <div class="chk" id="sMaghrib" data-v="5"><div class="chk-l"><div class="chk-b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg></div><span>ركعتين بعد المغرب</span></div><span class="op-pt">5</span></div>
+            <div class="chk" id="sIsha" data-v="5"><div class="chk-l"><div class="chk-b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg></div><span>ركعتين بعد العشاء</span></div><span class="op-pt">5</span></div>
+        </div></div>
+
+        <div class="nav-g">
+            <button class="nav-lg" onclick="goTo(1)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> الصلوات والقرآن</button>
+            <button class="nav-lg" onclick="goTo(3)">التراويح والمزيد <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+        </div>
+    </div>
+
+    <div class="sub-page" id="p3">
+        <div style="display:flex; justify-content:space-between; margin-bottom:15px; gap:10px;">
+            <button class="btn-home" onclick="goTo(2)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> السنن والأذكار</button>
+            <button class="btn-home" onclick="goTo(1)">الرئيسية</button>
+        </div>
+
+        <div class="sec col" id="duSec"><div class="sec-hd" onclick="togSec('duSec')"><div class="sec-ic" style="background:rgba(249,115,22,0.15); color: #fb923c;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2"/><path d="M12 21v2"/><path d="M4.22 4.22l1.42 1.42"/><path d="M18.36 18.36l1.42 1.42"/><path d="M1 12h2"/><path d="M21 12h2"/><path d="M4.22 19.78l1.42-1.42"/><path d="M18.36 5.64l1.42-1.42"/></svg></div><h2 class="sec-nm">صلاة الضحى</h2><span class="sec-bdg" id="duBdg">0</span><svg class="col-ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="sec-ct"><div class="hdth">قال رسول الله ﷺ: «يُصْبِحُ عَلَى كُلِّ سُلَامَى مِنْ أَحَدِكُمْ صَدَقَةٌ، فَكُلُّ تَسْبِيحَةٍ صَدَقَةٌ، وَكُلُّ تَحْمِيدَةٍ صَدَقَةٌ، وَكُلُّ تَهْلِيلَةٍ صَدَقَةٌ، وَكُلُّ تَكْبِيرَةٍ صَدَقَةٌ، وَأَمْرٌ بِالْمَعْرُوفِ صَدَقَةٌ، وَنَهْيٌ عَنِ الْمُنْكَرِ صَدَقَةٌ، وَيُجْزِئُ مِنْ ذَلِكَ رَكْعَتَانِ يَرْكَعُهُمَا مِنَ الضُّحَى» رواه مسلم.</div><div class="chk" id="duha" data-v="10"><div class="chk-l"><div class="chk-b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg></div><span>صليت الضحى</span></div><span class="op-pt">10</span></div></div></div>
+
+        <div class="sec col" id="trSec"><div class="sec-hd" onclick="togSec('trSec')"><div class="sec-ic" style="background:rgba(59,130,246,0.15); color: #60a5fa;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><h2 class="sec-nm">صلاة التراويح</h2><span class="sec-bdg" id="trBdg">0</span><svg class="col-ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="sec-ct"><div class="hdth">قال رسول الله ﷺ: «مَنْ قَامَ رَمَضَانَ إِيمَانًا وَاحْتِسَابًا غُفِرَ لَهُ مَا تَقَدَّمَ مِنْ ذَنْبِهِ» متفق عليه.</div><div class="pr-g" style="border:none;"><div class="pr-nm">التراويح <span class="pr-st no" id="trSt">-</span></div><div class="op-g" id="trOpts"><div class="op-i" data-v="30" data-g="taraweeh"><div class="op-l"><div class="op-r"></div><span>8 ركعات + شفع و وتر</span></div><span class="op-pt">30</span></div><div class="op-i" data-v="20" data-g="taraweeh"><div class="op-l"><div class="op-r"></div><span>8 ركعات</span></div><span class="op-pt">20</span></div></div></div></div></div>
+
+        <div class="sec col" id="bqSec"><div class="sec-hd" onclick="togSec('bqSec')"><div class="sec-ic" style="background:rgba(236,72,153,0.15); color: #f472b6;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><h2 class="sec-nm">سورة البقرة</h2><span class="sec-bdg" id="bqBdg">0</span><svg class="col-ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="sec-ct"><div class="hdth">قال رسول الله ﷺ: «إِنَّ الشَّيْطَانَ يَنْفِرُ مِنَ الْبَيْتِ الَّذِي تُقْرَأُ فِيهِ سُورَةُ الْبَقَرَةِ» رواه مسلم.</div>
+        <div class="pr-g" style="border:none;">
+            <div class="pr-nm">مقدار القراءة <span class="pr-st no" id="baqarahSt">-</span></div>
+            <div class="op-g" id="baqarahOpts">
+                <div class="op-i" data-v="40" data-g="baqarah"><div class="op-l"><div class="op-r"></div><span>سورة البقرة كاملة</span></div><span class="op-pt">40</span></div>
+                <div class="op-i" data-v="20" data-g="baqarah"><div class="op-l"><div class="op-r"></div><span>نصف سورة البقرة</span></div><span class="op-pt">20</span></div>
+            </div>
+        </div>
+        </div></div>
+
+        <div class="sec col" id="mlkSec"><div class="sec-hd" onclick="togSec('mlkSec')"><div class="sec-ic" style="background:rgba(14,165,233,0.15); color: #38bdf8;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></div><h2 class="sec-nm">سورة الملك</h2><span class="sec-bdg" id="mlkBdg">0</span><svg class="col-ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="sec-ct"><div class="hdth">عن أبي هريرة رضي الله عنه أن رسول الله ﷺ قال: «إِنَّ سُورَةً مِنَ الْقُرْآنِ ثَلَاثُونَ آيَةً شَفَعَتْ لِصَاحِبِهَا حَتَّى غُفِرَ لَهُ: تَبَارَكَ الَّذِي بِيَدِهِ الْمُلْكُ» رواه الترمذي وابن ماجه.</div>
+        <div class="pr-g" style="border:none;">
+            <div class="pr-nm">مقدار القراءة <span class="pr-st no" id="mulkSt">-</span></div>
+            <div class="op-g" id="mulkOpts">
+                <div class="op-i" data-v="25" data-g="mulk"><div class="op-l"><div class="op-r"></div><span>سورة الملك كاملة</span></div><span class="op-pt">25</span></div>
+            </div>
+        </div>
+        </div></div>
+
+        <div class="sec col" id="athSec"><div class="sec-hd" onclick="togSec('athSec')"><div class="sec-ic" style="background:rgba(34,197,94,0.15); color: #4ade80;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4"/><path d="m16.2 7.8 2.9-2.9"/><path d="M18 12h4"/><path d="m16.2 16.2 2.9 2.9"/><path d="M12 18v4"/><path d="m4.9 19.1 2.9-2.9"/><path d="M2 12h4"/><path d="m4.9 4.9 2.9 2.9"/></svg></div><h2 class="sec-nm">أذكار الصباح والمساء</h2><span class="sec-bdg" id="athBdg">0</span><svg class="col-ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="sec-ct"><div class="hdth">قال رسول الله ﷺ: «مَثَلُ الَّذِي يَذْكُرُ رَبَّهُ وَالَّذِي لَا يَذْكُرُ رَبَّهُ، مَثَلُ الْحَيِّ وَالْمَيِّتِ» رواه البخاري.</div><div class="chk" id="aMorn" data-v="8"><div class="chk-l"><div class="chk-b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg></div><span>أتممت أذكار الصباح</span></div><span class="op-pt">8</span></div><div class="chk" id="aEve" data-v="8"><div class="chk-l"><div class="chk-b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg></div><span>أتممت أذكار المساء</span></div><span class="op-pt">8</span></div><div class="chk" id="aSlp" data-v="6"><div class="chk-l"><div class="chk-b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg></div><span>أتممت أذكار النوم</span></div><span class="op-pt">6</span></div></div></div>
+
+        <div class="sec col" id="pureSec"><div class="sec-hd" onclick="togSec('pureSec')"><div class="sec-ic" style="background:rgba(220,38,38,0.15); color: #f87171;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div><h2 class="sec-nm">غض البصر والسمع</h2><span class="sec-bdg" id="pureBdg">0</span><svg class="col-ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="sec-ct"><div class="hdth">قال الله تعالى: ﴿إِنَّ السَّمْعَ وَالْبَصَرَ وَالْفُؤَادَ كُلُّ أُولَـئِكَ كَانَ عَنْهُ مَسْئُولًا﴾ [الإسراء: 36]</div><div class="chk" id="noBadContent" data-v="100"><div class="chk-l"><div class="chk-b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg></div><span>لم أشاهد أي محتوى مسلسل أو فيلم أو فيديو غير ديني اليوم</span></div><span class="op-pt">100</span></div></div></div>
+
+        <div class="sec">
+            <div class="sec-hd"><h2 class="sec-nm">تحليل أدائك التفصيلي</h2></div>
+            <div class="an-g">
+                <div class="an-i"><div class="an-v" id="anP">0/5</div><div class="an-l">الصلوات</div></div>
+                <div class="an-i"><div class="an-v" id="anA">0/5</div><div class="an-l">الأذكار</div></div>
+                <div class="an-i"><div class="an-v" id="anS">0/5</div><div class="an-l">السنن</div></div>
+                <div class="an-i"><div class="an-v" id="anQ">0%</div><div class="an-l">القرآن</div></div>
+                <div class="an-i"><div class="an-v" id="anM">0%</div><div class="an-l">المُلك</div></div>
+                <div class="an-i"><div class="an-v" id="anO">0%</div><div class="an-l">الأداء</div></div>
+            </div>
+        </div>
+
+        <div class="nav-g">
+            <button class="nav-lg" onclick="goTo(2)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> السنن والأذكار</button>
+            <button class="btn btn-pr" onclick="saveD()">حفظ تقييم اليوم</button>
+        </div>
+    </div>
+</div>
+
+<!-- About Page -->
+<div class="container page" id="about">
+    <button class="btn-home" onclick="shPg('mainApp'); goTo(1)" style="margin-bottom: 15px; width: 100%; justify-content: center;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        العودة للرئيسية
+    </button>
+    
+    <div class="about-box">
+        <div class="about-header">
+            <h1 class="about-title">من نحن</h1>
+            <p class="about-subtitle">قصة عمل خالص لوجه الله تعالى</p>
+        </div>
+        
+        <div class="about-bismillah">
+            <div class="bismillah-text">
+                بِسْمِ اللهِ الرَّحْمَنِ الرَّحِيمِ
+                <br>
+                اَللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ
+            </div>
+        </div>
+        
+        <div class="about-intentions">
+            <div class="intention-section">
+                <div class="intention-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                    النِّيَّةُ وَالْإِخْلَاصُ
+                </div>
+                <div class="intention-text">
+                    هَذَا الْعَمَلُ <span class="dua-highlight">خَالِصٌ لِوَجْهِ اللهِ تَعَالَى</span>، لَا نَبْتَغِي مِنْهُ سُلْفَةَ دُنْيَا وَلَا حَمْدَ الْعِبَادِ.
+                    <br><br>
+                    نَضَعُهُ بَيْنَ أَيْدِيكُمْ لِلانْتِفَاعِ بِهِ وَنَشْرِهِ <span class="dua-highlight">دُونَ أَيِّ تَعْدِيلٍ</span>.
+                </div>
+            </div>
+        </div>
+        
+        <div class="sahabi-quote">
+            <div class="sahabi-quote-text">
+                «إِنَّ اللهَ ابْتَعَثَنَا لِنُخْرِجَ مَنْ شَاءَ مِنْ عِبَادَةِ الْعِبَادِ إِلَى عِبَادَةِ رَبِّ الْعِبَادِ، وَمِنْ ضِيقِ الدُّنْيَا إِلَى سَعَتِهَا، وَمِنْ جَوْرِ الْأَدْيَانِ إِلَى عَدْلِ الْإِسْلَامِ، فَأَرْسَلَنَا بِدِينِهِ إِلَى خَلْقِهِ لِنَدْعُوَهُمْ إِلَيْهِ، فَمَنْ قَبِلَ ذَلِكَ قَبِلْنَا مِنْهُ وَرَجَعْنَا عَنْهُ، وَمَنْ أَبَى قَاتَلْنَاهُ أَبَدًا حَتَّى نَفْضِيَ إِلَى مَوْعُودِ الله»
+            </div>
+            <div class="sahabi-name">رِبْعِيُّ بْنُ عَامِرٍ رَضِيَ اللهُ عَنْهُ</div>
+        </div>
+        
+        <div class="about-intentions">
+            <div class="intention-section">
+                <div class="intention-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    شُكْرُ الْمُعَاوِنِينَ
+                </div>
+                <div class="intention-text">
+                    نَسْأَلُكُمْ أَنْ <span class="dua-highlight">تَذْكُرُونَا بِدَعْوَةٍ صَالِحَةٍ فِي السُّجُودِ</span>، وَأَنْ تَدْعُوا لِكُلِّ مَنْ سَاهَمَ وَلَوْ بِالْقَلِيلِ فِي إِخْرَاجِ هَذَا الْعَمَلِ عَلَى أَكْمَلِ وَجْهٍ.
+                </div>
+            </div>
+        </div>
+        
+        <div class="dua-section">
+            <div class="dua-box">
+                <div class="dua-title">دُعَاؤُكُمْ لِإِخْوَانِكُمْ</div>
+                <div class="dua-text">
+                    فِي الْخِتَامِ، نَدْعُوا اللهَ الْقَدِيرَ لِكُلِّ مُسْلِمٍ فِي:
+                </div>
+                
+                <div class="dua-countries">
+                    <span class="country-tag">فِلَسْطِينَ الْحَبِيبَةِ</span>
+                    <span class="country-tag">السُّودَانِ</span>
+                    <span class="country-tag">كُلِّ مَكَانٍ فِيهِ مُسْلِمُونَ مُسْتَضْعَفُونَ</span>
+                </div>
+                
+                <div class="dua-text">
+                    نَدْعُو لَهُمْ بِالنَّصْرِ الْقَرِيبِ وَالْفَتْحِ الْمُبِينِ.
+                    <br><br>
+                    نَدْعُو لَهُمْ بِكُلِّ مَا تُحِبُّونَهُ لِأَنْفُسِكُمْ.
+                    <br><br>
+                    نَدْعُو اللهَ أَنْ <span class="dua-highlight">يُوَحِّدَ صُفُوفَنَا عَلَى طَاعَتِهِ</span>.
+                </div>
+                
+                <div class="final-dua">
+                    <div class="final-dua-text">
+                        وَأَلَّا يُخْرِجَنَا مِنْ هَذِهِ الدُّنْيَا إِلَّا وَهُوَ رَاضٍ عَنَّا
+                        <br>
+                        يَا رَبِّ الْعَالَمِينَ
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Stats Page -->
+<div class="container page" id="stats">
+    <button class="btn-home" onclick="shPg('mainApp'); goTo(1)" style="margin-bottom: 15px; width: 100%; justify-content: center;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        العودة للرئيسية
+    </button>
+    <div class="stats-box">
+        <div class="stats-hd"><h1>إحصائياتك</h1></div>
+        <div class="st-hd-stats">
+            <div class="st-stat-box"><span class="st-stat-val" id="statP">0</span><span class="st-stat-lbl">درجة</span></div>
+            <div class="st-stat-box"><span class="st-stat-val" id="statD">0</span><span class="st-stat-lbl">أيام</span></div>
+        </div>
+        <div style="padding: 15px;">
+            <div class="str-b"><div class="str-i">🔥</div><div><h3 id="strCnt">0 أيام متتالية</h3><p style="font-size:0.8rem;color:var(--text-secondary)">استمر بالأجر بالاستمرار</p></div></div>
+        </div>
+        <div class="d-list-h"><h2>سجل الأيام</h2><span id="dCnt">0</span></div>
+        <div id="dList"></div>
+    </div>
+</div>
+
+<!-- Report Page -->
+<div class="container page" id="report">
+    <button class="btn-home" onclick="shPg('mainApp'); goTo(1)" style="margin-bottom: 15px; width: 100%; justify-content: center;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        العودة للرئيسية
+    </button>
+    <div class="report-box">
+        <div class="report-hd"><h1>تقرير الشهر</h1><p id="reportMonth">رمضان 1447</p></div>
+        <div class="report-summary">
+            <div class="report-sum-card"><span class="report-sum-val" id="reportTotalScore">0</span><span class="report-sum-lbl">إجمالي الدرجات</span></div>
+            <div class="report-sum-card"><span class="report-sum-val" id="reportAvgScore">0%</span><span class="report-sum-lbl">معدل الأداء</span></div>
+            <div class="report-sum-card"><span class="report-sum-val" id="reportDaysCount">0</span><span class="report-sum-lbl">أيام مسجلة</span></div>
+        </div>
+        <div id="dayListReport" class="day-list"></div>
+    </div>
+</div>
+
+<!-- Achievements Page -->
+<div class="container page" id="achievements">
+    <button class="btn-home" onclick="shPg('mainApp'); goTo(1)" style="margin-bottom: 15px; width: 100%; justify-content: center;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        العودة للرئيسية
+    </button>
+    <div class="ach-box">
+        <div class="ach-hd"><h1>إنجازاتك</h1></div>
+        <div class="ach-intro"><div class="ach-quran">﴿وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا وَإِنَّ اللَّهَ لَمَعَ الْمُحْسِنِينَ﴾</div></div>
+        <div class="ach-grid">
+            <div class="ach-card" id="achStart"><div class="ach-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><div class="ach-tl">البداية</div><div class="ach-ds">أول يوم تسجل فيه</div></div>
+            <div class="ach-card" id="achConservative"><div class="ach-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 21h18"/><path d="M5 21V7l8-4 8 4v14"/><circle cx="12" cy="10" r="2"/><path d="M12 12v9"/></svg></div><div class="ach-tl">المحافظة</div><div class="ach-ds">5 صلوات في وقتها</div></div>
+            <div class="ach-card" id="achConsistency"><div class="ach-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2v4"/><path d="m16.2 7.8 2.9-2.9"/><path d="M18 12h4"/><path d="m16.2 16.2 2.9 2.9"/><path d="M12 18v4"/><path d="m4.9 19.1 2.9-2.9"/><path d="M2 12h4"/><path d="m4.9 4.9 2.9 2.9"/></svg></div><div class="ach-tl">الاستمرار</div><div class="ach-ds">3 أيام متتالية</div></div>
+            <div class="ach-card" id="achPerfect"><div class="ach-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><div class="ach-tl">يوم مثالي</div><div class="ach-ds">400 درجة</div></div>
+            <div class="ach-card" id="achWeek"><div class="ach-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg></div><div class="ach-tl">أسبوع كامل</div><div class="ach-ds">7 أيام متتالية</div></div>
+            <div class="ach-card" id="achQari"><div class="ach-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><div class="ach-tl">قارئ</div><div class="ach-ds">قرأت 10 أجزاء</div></div>
+            <div class="ach-card" id="achKhatm"><div class="ach-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><div class="ach-tl">خاتم</div><div class="ach-ds">ختمت القرآن</div></div>
+            <div class="ach-card" id="achPure"><div class="ach-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div><div class="ach-tl">بصيرة نقية</div><div class="ach-ds">7 أيام بدون محتوى سيء</div></div>
+        </div>
+    </div>
+</div>
+
+<!-- Result Modal -->
+<div class="mdl" id="resMd">
+    <div class="mdl-c">
+        <button class="cls-btn" onclick="clsMd()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+        <div class="res-hd"><h2 id="resDt">نتيجة اليوم</h2></div>
+        <div class="res-g">
+            <div class="res-c"><strong id="rsP">0</strong><span>صلوات</span></div>
+            <div class="res-c"><strong id="rsQ">0</strong><span>قرآن</span></div>
+            <div class="res-c"><strong id="rsS">0</strong><span>سنن</span></div>
+            <div class="res-c"><strong id="rsA">0</strong><span>أذكار</span></div>
+        </div>
+        <div class="res-total">
+            <div class="res-total-val" id="rsT">0</div>
+            <div class="res-total-lbl">درجة إجمالية</div>
+        </div>
+        <div class="res-list">
+            <div class="res-r"><span>نسبة الأداء</span><span id="rsPc">0%</span></div>
+            <div class="res-r"><span>التقييم</span><span id="rsGr">-</span></div>
+        </div>
+        <button class="btn btn-pr" onclick="edD()" style="margin-top:15px;" id="edBtn">تعديل النتيجة</button>
+    </div>
+</div>
+
+<script>
+const LVLS = [
+    {n:'مبتدئ', min:0, max:1500, t:'بداية الطريق'},
+    {n:'متعلم', min:1501, max:3000, t:'طالب علم'},
+    {n:'مجتهد', min:3001, max:4500, t:'همة عالية'},
+    {n:'متميز', min:4501, max:6000, t:'قدوة عملية'},
+    {n:'متقدم', min:6001, max:7500, t:'داعية'},
+    {n:'قدوة', min:7501, max:999999, t:'أسوة حسنة'}
+];
+
+let d = null;
+let cDt = null;
+const S = {};
+const MAX_DAILY_SCORE = 400;
+
+const WISDOMS = [
+    "عن أبي هريرة رضي الله عنه قال: قال رسول الله ﷺ: «مَنْ صَامَ رَمَضَانَ إِيمَانًا وَاحْتِسَابًا غُفِرَ لَهُ مَا تَقَدَّمَ مِنْ ذَنْبِهِ» متفق عليه.",
+    "عن سهل بن سعد رضي الله عنه عن النبي ﷺ قال: «إِنَّ فِي الْجَنَّةِ بَابًا يُقَالُ لَهُ الرَّيَّانُ، يَدْخُلُ مِنْهُ الصَّائِمُونَ يَوْمَ الْقِيَامَةِ، لَا يَدْخُلُ مِنْهُ أَحَدٌ غَيْرُهُمْ» متفق عليه.",
+    "عن عبد الله بن عمرو رضي الله عنهما أن رسول الله ﷺ قال: «الصِّيَامُ وَالْقُرْآنُ يَشْفَعَانِ لِلْعَبْدِ يَوْمَ الْقِيَامَةِ» رواه أحمد.",
+    "عن أبي هريرة رضي الله عنه عن النبي ﷺ قال: «تَسَحَّرُوا فَإِنَّ فِي السَّحُورِ بَرَكَةً» متفق عليه.",
+    "عن زيد بن خالد الجهني رضي الله عنه قال: قال رسول الله ﷺ: «مَنْ فَطَّرَ صَائِمًا كَانَ لَهُ مِثْلُ أَجْرِهِ» رواه الترمذي."
+];
+
+const RAMADAN_1447_START = new Date(2026, 1, 19, 0, 0, 0, 0);
+const ARABIC_DAYS = ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
+const ARABIC_MONTHS = ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'];
+
+function getEgyptDate() {
+    const now = new Date();
+    const egyptStr = now.toLocaleString('en-CA', { timeZone: 'Africa/Cairo', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false });
+    const [datePart, timePart] = egyptStr.split(', ');
+    const [year, month, day] = datePart.split('-').map(Number);
+    const [hour, minute] = timePart.split(':').map(Number);
+    return new Date(year, month - 1, day, hour, minute, 0, 0);
+}
+
+function getRamadanDay(date) {
+    const targetDate = new Date(date);
+    targetDate.setHours(0, 0, 0, 0);
+    const ramadanStart = new Date(RAMADAN_1447_START);
+    ramadanStart.setHours(0, 0, 0, 0);
+    const diffTime = targetDate - ramadanStart;
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    const ramadanDay = diffDays + 1;
+    if (ramadanDay >= 1 && ramadanDay <= 30) return ramadanDay;
+    return null;
+}
+
+function formatHijriDate(date) {
+    const ramadanDay = getRamadanDay(date);
+    if (ramadanDay !== null) return `${ramadanDay} رمضان 1447`;
+    return 'رمضان 1447';
+}
+
+function formatGregorianDate(date) {
+    const d = new Date(date);
+    return {
+        full: `${ARABIC_DAYS[d.getDay()]} ${d.getDate()} ${ARABIC_MONTHS[d.getMonth()]} ${d.getFullYear()}`,
+        short: `${d.getDate()} ${ARABIC_MONTHS[d.getMonth()]} ${d.getFullYear()}`
+    };
+}
+
+function getT() {
+    const egyptDate = getEgyptDate();
+    return `${egyptDate.getFullYear()}-${String(egyptDate.getMonth() + 1).padStart(2, '0')}-${String(egyptDate.getDate()).padStart(2, '0')}`;
+}
+
+function upHijri() {
+    let egyptDate = getEgyptDate();
+    if (cDt) {
+        egyptDate = new Date(cDt);
+        document.getElementById('editModeMsg').classList.add('active');
+    } else {
+        document.getElementById('editModeMsg').classList.remove('active');
+    }
+    document.getElementById('hDate').textContent = formatHijriDate(egyptDate);
+    document.getElementById('rDay').textContent = formatGregorianDate(egyptDate).full;
+}
+
+function initS() {
+    const k = ['quran','fajr','dhuhr','asr','maghrib','isha','postFajr','postDhuhr','postAsr','postMaghrib','postIsha','duha','sFajr','sDhuhrB','sDhuhrA','sMaghrib','sIsha','taraweeh','baqarah','mulk','aMorn','aEve','aSlp','noBadContent'];
+    k.forEach(k => S[k] = {v:null, p:0});
+}
+initS();
+
+function calcTotalPts() {
+    if(!d || !d.recs) return 0;
+    let total = 0;
+    Object.values(d.recs).forEach(dayData => {
+        Object.values(dayData).forEach(item => {
+            if(item && typeof item.p === 'number') total += item.p;
+        });
+    });
+    return total;
+}
+
+function loadD() {
+    d = getD();
+    cDt = null;
+    document.getElementById('editModeMsg').classList.remove('active');
+    document.getElementById('un').textContent = 'مرحباً';
+    document.getElementById('av').textContent = 'م';
+    d.pts = calcTotalPts();
+    svD();
+    upLvl(d.pts || 0);
+    upStr();
+    upHijri();
+    const t = getT();
+    initS();
+    if(d.recs && d.recs[t]) Object.assign(S, d.recs[t]);
+    upUI();
+    renLvl();
+}
+
+function getD() {
+    let data = localStorage.getItem('rfq_data_v12');
+    if(!data) {
+        data = {pts:0, recs:{}};
+        localStorage.setItem('rfq_data_v12', JSON.stringify(data));
+    } else {
+        data = JSON.parse(data);
+    }
+    return data;
+}
+
+function svD() {
+    if(!d) return;
+    const t = cDt || getT();
+    d.recs[t] = JSON.parse(JSON.stringify(S));
+    d.pts = calcTotalPts();
+    localStorage.setItem('rfq_data_v12', JSON.stringify(d));
+}
+
+function goTo(n) {
+    document.querySelectorAll('.sub-page').forEach(p => p.classList.remove('active'));
+    document.getElementById('p' + n)?.classList.add('active');
+    window.scrollTo(0, 0);
+}
+
+function shPg(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(id)?.classList.add('active');
+    if(id === 'stats') upStats();
+    if(id === 'report') upReport();
+    if(id === 'achievements') updateAchievements();
+    window.scrollTo(0, 0);
+}
+
+function upScr() {
+    const t = calcT();
+    document.getElementById('scr').textContent = t;
+    const p = Math.min(t / MAX_DAILY_SCORE, 1);
+    const c = document.getElementById('circ');
+    if(c) c.style.strokeDashoffset = 280 - (280 * p);
+    document.getElementById('prBdg').textContent = S.fajr.p + S.dhuhr.p + S.asr.p + S.maghrib.p + S.isha.p;
+    document.getElementById('qrBdg').textContent = S.quran.p;
+    document.getElementById('ptBdg').textContent = S.postFajr.p + S.postDhuhr.p + S.postAsr.p + S.postMaghrib.p + S.postIsha.p;
+    document.getElementById('snBdg').textContent = S.sFajr.p + S.sDhuhrB.p + S.sDhuhrA.p + S.sMaghrib.p + S.sIsha.p;
+    document.getElementById('trBdg').textContent = S.taraweeh.p;
+    document.getElementById('duBdg').textContent = S.duha.p;
+    document.getElementById('bqBdg').textContent = S.baqarah.p;
+    document.getElementById('mlkBdg').textContent = S.mulk.p;
+    document.getElementById('athBdg').textContent = S.aMorn.p + S.aEve.p + S.aSlp.p;
+    document.getElementById('pureBdg').textContent = S.noBadContent.p;
+    
+    ['fajr','dhuhr','asr','maghrib','isha','quran','taraweeh','baqarah','mulk'].forEach(k => {
+        const el = document.getElementById(k + 'St');
+        if(el) {
+            el.textContent = S[k]?.v > 0 ? 'تمت' : '-';
+            el.className = 'pr-st ' + (S[k]?.v > 0 ? 'ok' : 'no');
+        }
+    });
+    svD();
+    upAn();
+}
+
+function calcT() {
+    let t = 0;
+    Object.values(S).forEach(i => { if(i && typeof i.p === 'number') t += i.p; });
+    return t;
+}
+
+function upAn() {
+    let pd = 0;
+    ['fajr','dhuhr','asr','maghrib','isha'].forEach(k => { if(S[k]?.v > 0) pd++; });
+    let ad = 0;
+    ['postFajr','postDhuhr','postAsr','postMaghrib','postIsha'].forEach(k => { if(S[k]?.v) ad++; });
+    let sd = 0;
+    ['sFajr','sDhuhrB','sDhuhrA','sMaghrib','sIsha'].forEach(k => { if(S[k]?.v) sd++; });
+    const qp = S.quran?.v ? Math.min((S.quran.v / 50) * 100, 100) : 0;
+    const mp = S.mulk?.v ? 100 : 0;
+    const s = calcT();
+    const op = (s / MAX_DAILY_SCORE) * 100;
+    setAn('anP', pd, 5);
+    setAn('anA', ad, 5);
+    setAn('anS', sd, 5);
+    setAn('anQ', Math.round(qp), 100);
+    setAn('anM', Math.round(mp), 100);
+    setAn('anO', Math.round(op), 100);
+}
+
+function setAn(id, v, m) {
+    const el = document.getElementById(id);
+    if(el) {
+        el.textContent = m === 100 ? v + '%' : v + '/' + m;
+        el.className = 'an-v ' + (v === m ? 'exc' : v >= m / 2 ? 'gd' : 'wk');
+    }
+}
+
+function upLvl(pts) {
+    const l = LVLS.find(x => pts >= x.min && pts <= x.max) || LVLS[0];
+    document.getElementById('lvNm').innerHTML = l.n + ' <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="6 9 12 15 18 9"/></svg>';
+    document.getElementById('lvTt').textContent = l.t;
+    const nx = LVLS.find(x => x.min > pts);
+    if(nx) document.getElementById('lvBr').style.width = Math.min(100, ((pts - l.min) / (nx.min - l.min)) * 100) + '%';
+    else document.getElementById('lvBr').style.width = '100%';
+}
+
+function renLvl() {
+    const c = document.getElementById('lvDet');
+    const p = d?.pts || 0;
+    c.innerHTML = LVLS.map(l => `<div class="lvl-t ${p >= l.min && p <= l.max ? 'on' : ''}"><span>${l.n}</span><span>${l.min}-${l.max}</span></div>`).join('');
+}
+
+function togLvl() { document.getElementById('lvDet').classList.toggle('on'); }
+
+function upUI() {
+    ['quran','fajr','dhuhr','asr','maghrib','isha','taraweeh','baqarah','mulk'].forEach(g => {
+        if(S[g]?.v !== null) document.querySelectorAll(`[data-g="${g}"]`).forEach(o => o.classList.toggle('sl', parseInt(o.dataset.v) === S[g].v));
+    });
+    ['duha','sFajr','sDhuhrB','sDhuhrA','sMaghrib','sIsha','aMorn','aEve','aSlp','postFajr','postDhuhr','postAsr','postMaghrib','postIsha','noBadContent'].forEach(k => {
+        const el = document.getElementById(k);
+        if(el) el.classList.toggle('on', S[k]?.v);
+    });
+    upScr();
+}
+
+function togSec(id) { document.getElementById(id).classList.toggle('col'); }
+
+function cancelEdit() {
+    if(confirm('هل تريد إلغاء التعديل والعودة لليوم الحالي؟')) {
+        cDt = null;
+        loadD();
+        shPg('mainApp');
+        goTo(1);
+    }
+}
+
+function upStr() {
+    if(!d?.recs) return;
+    const ds = Object.keys(d.recs).sort((a,b) => new Date(b) - new Date(a));
+    let st = 0;
+    const td = getEgyptDate();
+    td.setHours(0,0,0,0);
+    for(let i = 0; i < ds.length; i++) {
+        const day = new Date(ds[i]);
+        day.setHours(0,0,0,0);
+        if(Math.floor((td - day) / (1000 * 60 * 60 * 24)) === i) st++;
+        else break;
+    }
+    document.getElementById('stNm').textContent = st + ' أيام';
+    document.getElementById('strCnt').textContent = st + ' أيام متتالية';
+}
+
+function upStats() {
+    if(!d?.recs) {
+        document.getElementById('dList').innerHTML = '<p style="padding:20px;text-align:center;color:var(--text-secondary)">لا توجد سجلات بعد</p>';
+        return;
+    }
+    const ds = Object.keys(d.recs);
+    document.getElementById('dCnt').textContent = ds.length;
+    document.getElementById('statD').textContent = ds.length;
+    document.getElementById('statP').textContent = (d.pts || 0).toLocaleString('en-US');
+    const s = ds.sort((a,b) => new Date(b) - new Date(a));
+    document.getElementById('dList').innerHTML = s.map(date => {
+        const sc = Object.values(d.recs[date]).reduce((sm, i) => sm + (i?.p || 0), 0);
+        const dt = new Date(date);
+        const greg = formatGregorianDate(dt);
+        const hijri = formatHijriDate(dt);
+        return `<div class="d-item" onclick="shRes('${date}')">
+            <div><strong>${greg.full}</strong><br><small style="color:var(--text-secondary)">${hijri}</small></div>
+            <div style="display:flex;align-items:center;">
+                <span class="d-sc">${sc}</span>
+                <button class="ed-btn" onclick="event.stopPropagation(); edDt('${date}')">تعديل</button>
+            </div>
+        </div>`;
+    }).join('');
+}
+
+function upReport() {
+    if(!d?.recs) {
+        document.getElementById('dayListReport').innerHTML = '<div class="day-empty-msg">لم تسجل أي أيام بعد، ابدأ بتسجيل يومك!</div>';
+        return;
+    }
+    let totalScore = 0;
+    let totalDays = Object.keys(d.recs).length;
+    let totalPercentage = 0;
+    Object.values(d.recs).forEach(dayData => {
+        const dayScore = Object.values(dayData).reduce((s, i) => s + (i?.p || 0), 0);
+        totalScore += dayScore;
+        totalPercentage += (dayScore / MAX_DAILY_SCORE) * 100;
+    });
+    const avgPercentage = totalDays > 0 ? Math.round(totalPercentage / totalDays) : 0;
+    document.getElementById('reportTotalScore').textContent = totalScore.toLocaleString('en-US');
+    document.getElementById('reportAvgScore').textContent = avgPercentage + '%';
+    document.getElementById('reportDaysCount').textContent = totalDays;
+    document.getElementById('reportMonth').textContent = 'رمضان 1447';
+    
+    const sortedDays = Object.keys(d.recs).sort((a,b) => new Date(a) - new Date(b));
+    document.getElementById('dayListReport').innerHTML = sortedDays.map(date => {
+        const dayData = d.recs[date];
+        const dayScore = Object.values(dayData).reduce((s, i) => s + (i?.p || 0), 0);
+        const percentage = Math.round((dayScore / MAX_DAILY_SCORE) * 100);
+        const dt = new Date(date);
+        const greg = formatGregorianDate(dt);
+        const hijri = formatHijriDate(dt);
+        
+        let progressClass = 'weak';
+        if(percentage >= 90) progressClass = 'excellent';
+        else if(percentage >= 70) progressClass = 'good';
+        else if(percentage >= 50) progressClass = 'average';
+        const analysis = analyzeDay(dayData);
+        return `
+            <div class="day-card">
+                <div class="day-card-header">
+                    <span class="day-card-date">${hijri} - ${greg.short}</span>
+                    <span class="day-card-score">${dayScore} درجة</span>
+                </div>
+                <div class="day-progress-bar">
+                    <div class="day-progress-fill ${progressClass}" style="width:${percentage}%"></div>
+                </div>
+                <div class="day-analysis">
+                    <div class="analysis-item positive">
+                        <strong>ما أنجزته</strong>
+                        <span>${analysis.positive}</span>
+                    </div>
+                    <div class="analysis-item negative">
+                        <strong>ما ينقصك</strong>
+                        <span>${analysis.negative}</span>
+                    </div>
+                </div>
+            </div>
+        `;
+    }).join('');
+}
+
+function analyzeDay(dayData) {
+    let positive = [];
+    let negative = [];
+    const prayers = ['fajr','dhuhr','asr','maghrib','isha'];
+    let prayersDone = 0;
+    prayers.forEach(p => { if(dayData[p]?.v > 0) prayersDone++; });
+    if(prayersDone === 5) positive.push('الصلوات الخمس ✓');
+    else if(prayersDone > 0) positive.push(`${prayersDone} صلوات`);
+    else negative.push('الصلوات');
+    if(dayData.quran?.v > 0) {
+        if(dayData.quran.v >= 20) positive.push('قراءة القرآن ✓');
+        else positive.push('قراءة جزء');
+    } else {
+        negative.push('قراءة القرآن');
+    }
+    const sunnah = ['sFajr','sDhuhrB','sDhuhrA','sMaghrib','sIsha'];
+    let sunnahDone = 0;
+    sunnah.forEach(s => { if(dayData[s]?.v) sunnahDone++; });
+    if(sunnahDone >= 3) positive.push('السنن الرواتب ✓');
+    else if(sunnahDone > 0) positive.push(`${sunnahDone} سنن`);
+    else negative.push('السنن الرواتب');
+    const athkar = ['postFajr','postDhuhr','postAsr','postMaghrib','postIsha','aMorn','aEve'];
+    let athkarDone = 0;
+    athkar.forEach(a => { if(dayData[a]?.v) athkarDone++; });
+    if(athkarDone >= 5) positive.push('الأذكار ✓');
+    else if(athkarDone > 0) positive.push('بعض الأذكار');
+    else negative.push('الأذكار');
+    if(dayData.taraweeh?.v > 0) positive.push('التراويح ✓');
+    else negative.push('التراويح');
+    if(dayData.duha?.v) positive.push('الضحى ✓');
+    if(dayData.mulk?.v) positive.push('سورة الملك ✓');
+    if(dayData.baqarah?.v) positive.push('سورة البقرة ✓');
+    if(dayData.noBadContent?.v) positive.push('حفظ البصر ✓');
+    else negative.push('حفظ البصر');
+    if(dayData.aSlp?.v) positive.push('أذكار النوم ✓');
+    let posText = positive.length > 0 ? positive.slice(0, 4).join(' - ') : 'لا شيء';
+    let negText = negative.length > 0 ? negative.join(' - ') : 'لا شيء ينقصك!';
+    if(negative.length === 0) negText = 'يوم مثالي! 🌟';
+    return { positive: posText, negative: negText };
+}
+
+function updateAchievements() {
+    if(!d?.recs) return;
+    const hasDayWith = (pts) => Object.values(d.recs).some(day => Object.values(day).reduce((s,i) => s + (i?.p || 0), 0) >= pts);
+    const getStreak = () => {
+        const ds = Object.keys(d.recs).sort((a,b) => new Date(b) - new Date(a));
+        let st = 0;
+        const td = getEgyptDate();
+        td.setHours(0,0,0,0);
+        for(let i = 0; i < ds.length; i++) {
+            const day = new Date(ds[i]);
+            day.setHours(0,0,0,0);
+            if(Math.floor((td - day) / (1000 * 60 * 60 * 24)) === i) st++;
+            else break;
+        }
+        return st;
+    };
+    const getPureStreak = () => {
+        const ds = Object.keys(d.recs).sort((a,b) => new Date(b) - new Date(a));
+        let st = 0;
+        for(let i = 0; i < ds.length; i++) {
+            if(d.recs[ds[i]].noBadContent?.v) st++;
+            else break;
+        }
+        return st;
+    };
+    const streak = getStreak();
+    const pureStreak = getPureStreak();
+    const has5Prayers = Object.values(d.recs).some(day => ['fajr','dhuhr','asr','maghrib','isha'].filter(k => day[k]?.v > 0).length === 5);
+    let totalJuz = 0;
+    Object.values(d.recs).forEach(day => { if(day.quran?.v) totalJuz += day.quran.v / 20; });
+    document.getElementById('achQari').classList.toggle('done', totalJuz >= 10);
+    document.getElementById('achKhatm').classList.toggle('done', totalJuz >= 30);
+    document.getElementById('achConservative').classList.toggle('done', has5Prayers);
+    document.getElementById('achConsistency').classList.toggle('done', streak >= 3);
+    document.getElementById('achStart').classList.toggle('done', Object.keys(d.recs).length > 0);
+    document.getElementById('achPerfect').classList.toggle('done', hasDayWith(MAX_DAILY_SCORE));
+    document.getElementById('achWeek').classList.toggle('done', streak >= 7);
+    document.getElementById('achPure').classList.toggle('done', pureStreak >= 7);
+}
+
+function shRes(date) {
+    cDt = date;
+    const r = d.recs[date];
+    if(!r) return;
+    const dt = new Date(date);
+    const greg = formatGregorianDate(dt);
+    const hijri = formatHijriDate(dt);
+    document.getElementById('resDt').textContent = `${greg.full} | ${hijri}`;
+    let pd = ['fajr','dhuhr','asr','maghrib','isha'].filter(k => r[k]?.v > 0).length;
+    let qd = r.quran?.v || 0;
+    let sd = ['sFajr','sDhuhrB','sDhuhrA','sMaghrib','sIsha'].filter(k => r[k]?.v).length;
+    let ad = ['postFajr','postDhuhr','postAsr','postMaghrib','postIsha'].filter(k => r[k]?.v).length;
+    const sc = Object.values(r).reduce((s, i) => s + (i?.p || 0), 0);
+    const pc = Math.round((sc / MAX_DAILY_SCORE) * 100);
+    document.getElementById('rsP').textContent = pd + '/5';
+    document.getElementById('rsQ').textContent = qd;
+    document.getElementById('rsS').textContent = sd + '/5';
+    document.getElementById('rsA').textContent = ad + '/5';
+    document.getElementById('rsT').textContent = sc;
+    document.getElementById('rsPc').textContent = pc + '%';
+    let g = '-';
+    if(sc > 0) {
+        if(pc >= 90) g = 'ممتاز';
+        else if(pc >= 75) g = 'جيد جداً';
+        else if(pc >= 50) g = 'جيد';
+        else g = 'يحتاج تحسين';
+    }
+    document.getElementById('rsGr').textContent = g;
+    document.getElementById('resMd').style.display = 'block';
+}
+
+function clsMd() { document.getElementById('resMd').style.display = 'none'; cDt = null; }
+
+function edDt(date) {
+    cDt = date;
+    clsMd();
+    initS();
+    if(d.recs[date]) { Object.assign(S, d.recs[date]); upUI(); }
+    shPg('mainApp');
+    goTo(1);
+}
+
+function edD() {
+    clsMd();
+    if(!cDt) return;
+    initS();
+    if(d.recs[cDt]) { Object.assign(S, d.recs[cDt]); upUI(); }
+    shPg('mainApp');
+    goTo(1);
+}
+
+function clsSucMdl() {
+    document.getElementById('sucMdl').classList.remove('show');
+    shPg('stats');
+}
+
+function saveD() {
+    svD();
+    upStr();
+    const title = cDt ? 'تم التعديل بنجاح' : 'تم الحفظ بنجاح';
+    document.getElementById('sucTl').textContent = title;
+    document.getElementById('sucMsg').textContent = 'تقبل الله منا ومنك صالح الأعمال\nورزقنا الإخلاص في القول والفعل والعمل';
+    document.getElementById('sucMdl').classList.add('show');
+}
+
+function initOpts() {
+    document.querySelectorAll('.op-i').forEach(o => {
+        o.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const g = this.dataset.g;
+            const v = parseInt(this.dataset.v);
+            const sl = this.classList.contains('sl');
+            document.querySelectorAll(`[data-g="${g}"]`).forEach(x => x.classList.remove('sl'));
+            if(!sl) { this.classList.add('sl'); S[g] = {v, p:v}; }
+            else { S[g] = {v:null, p:0}; }
+            upScr();
+        });
+    });
+}
+
+function initCbs() {
+    ['duha','sFajr','sDhuhrB','sDhuhrA','sMaghrib','sIsha','aMorn','aEve','aSlp','postFajr','postDhuhr','postAsr','postMaghrib','postIsha','noBadContent'].forEach(k => {
+        const el = document.getElementById(k);
+        if(el) {
+            el.addEventListener('click', function(e) {
+                e.stopPropagation();
+                this.classList.toggle('on');
+                const v = parseInt(this.dataset.v);
+                const c = this.classList.contains('on');
+                S[k] = {v: c ? v : null, p: c ? v : 0};
+                upScr();
+            });
+        }
+    });
+}
+
+function loadWisdom() {
+    const random = WISDOMS[Math.floor(Math.random() * WISDOMS.length)];
+    document.getElementById('dailyWisdom').textContent = random;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    initOpts();
+    initCbs();
+    loadD();
+    loadWisdom();
+});
+</script>
+</body>
+</html>
