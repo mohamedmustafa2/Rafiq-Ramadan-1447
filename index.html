@@ -1482,10 +1482,7 @@ function saveD() {
     document.getElementById('sucMsg').textContent = 'تقبل الله منا ومنك صالح الأعمال\nورزقنا الإخلاص في القول والفعل والعمل';
     document.getElementById('sucMdl').classList.add('show');
     
-    // بعد ثانيتين نغلق النافذة تلقائياً ونذهب للإحصائيات
-    setTimeout(() => {
-        clsSucMdl();
-    }, 2000);
+    // تم إزالة setTimeout حتى لا تختفي النافذة تلقائياً، تبقى حتى يضغط المستخدم على "الحمد لله"
 }
 
 // ================== تهيئة العناصر ==================
@@ -1534,4 +1531,3 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>
 </html>
-
